@@ -54,7 +54,8 @@ from db import init_db, add_note, get_notes
 
 init_db()
 
-app = ApplicationBuilder().token("7676758391:AAGO4tZSiQoR2qAoeJEmxj0pNCAfTSqqd5o").build()
+from os import getenv
+app = ApplicationBuilder().token(getenv("BOT_TOKEN")).build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("add", add))
